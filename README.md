@@ -1,4 +1,4 @@
-# microservice--config-repo
+# Microservices Configuration Repository
 
 Repository to store all configuration files for Microservices project
 

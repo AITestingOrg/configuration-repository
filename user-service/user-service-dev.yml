@@ -1,4 +1,4 @@
-message: "I'm a config file from git repository"
+message: "I'm a config file from git repository."
 
 spring:
   

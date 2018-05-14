@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: edgeservice
+zuul:
+  prefix: /api
+  routes:
+    trip-cmd:
+      path: /trip/cmd/**
+      url: http://tripmanagementcmd:8080/api
+    trip-query:
+      path: /trip/query/**
+      url: http://tripmanagementquery:8080/api
+    userservice:
+      path: /userservice/**
+      url: http://userservice:8091/
+      sensitiveHeaders: Cookie,Set-Cookie
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:8091/auth/user
+  ignored: /catalog/**
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka/
+management:
+  security:
+    enabled: false
+  context-path: /actuator
